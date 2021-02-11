@@ -1,34 +1,17 @@
-import "./styles.css";
-
-const onClickAdd = () => {
-  //テキストボックスの値を取得し、初期化する
-  const inputText = document.getElementById("add-text").value;
 /**
  * const,let等の変数宣言
  */
 // var val1 = "var変数";
 // console.log(val1);
-  document.getElementById("add-text").value = "";
 
-  createIncompleteList(inputText);
-};
 // // var変数は上書き可能
 // val1 = "var変数を上書き";
 // console.log(val1);
 
-// 未完了リストから指定の要素を削除
-const deleteFromIncompleteList = (target) => {
-  document.getElementById("incomplete-list").removeChild(target);
 // // var変数は再宣言可能
 // var val1 = "var変数を再宣言";
 // console.log(val1);
-};
 
-//未完了リストに追加する関数
-const createIncompleteList = (text) => {
-  //div生成
-  const div = document.createElement("div");
-  div.className = "list-row";
 // let val2 = "let変数";
 // console.log(val2);
 
@@ -36,36 +19,17 @@ const createIncompleteList = (text) => {
 // val2 = "let変数を上書き";
 // console.log(val2);
 
-  //liタグ生成
-  const li = document.createElement("li");
 // //letは再宣言不可能
 // let val2 = "let変数を再宣言";
-  li.innerText = text;
 
-  // button(完了)タグ生成
-  const completeButton = document.createElement("button");
-  completeButton.innerText = "完了";
-  completeButton.addEventListener("click", () => {
-    //押された完了ボタンの親タグ(div)を未完了リストから削除
 // const val3 = "const変数";
 // console.log(val3);
 
 // // const変数は上書き不可
 // // val3 = "const変数を上書き"
-    deleteFromIncompleteList(completeButton.parentNode);
 
-    //完了リストに追加する要素
 // const val3 = "constを再宣言";
-    const addTarget = completeButton.parentNode;
 
-    //TODOの内容テキストを取得
-    const text = addTarget.firstElementChild.innerText;
-
-    //div以下を初期化
-    addTarget.textContent = null;
-
-    // liタグを生成
-    const li = document.createElement("li");
 // constで定義したオブジェクトはプロパティの変更が可能
 // const val4 = {
 //   name: "じゃけぇ",
@@ -74,20 +38,7 @@ const createIncompleteList = (text) => {
 // val4.name = "jak";
 // val4.addres = "Hiroshima";
 // console.log(val4);
-    li.innerText = text;
 
-    //buttonタグ生成
-    const backButton = document.createElement("button");
-    backButton.innerText = "戻す";
-    backButton.addEventListener("click", () => {
-      //押された戻すボタンの親タグ(div)を完了リストから削除
-      const deleteTarget = backButton.parentNode;
-      document.getElementById("complete-list").removeChild(deleteTarget);
-
-      //テキストを取得
-      const text = backButton.parentNode.firstElementChild.innerText;
-      createIncompleteList(text);
-    });
 // constで定義した配列はプロパティの変更が可能
 // const val5 = ["dog", "cat"];
 // val5[0] = "bird";
@@ -101,31 +52,14 @@ const createIncompleteList = (text) => {
 // const age = 28;
 // //「私の名前はじゃけぇです。年齢は28歳です」
 
-    //divタグの子要素に各要素を設定
-    addTarget.appendChild(li);
-    addTarget.appendChild(backButton);
 // //従来の方法
 // const message1 = "私の名前は" + name + "です。年齢は" + age + "です。";
 // console.log(message1);
 
-    //完了リストに追加
-    document.getElementById("complete-list").appendChild(addTarget);
-  });
 // // テンプレート文字列を用いた方法
 // const message2 = `私の名前は${name}です。年齢は${age}です。`;
 // console.log(message2);
 
-  // button(削除)タグ生成
-  const deleteButton = document.createElement("button");
-  deleteButton.innerText = "削除";
-  deleteButton.addEventListener("click", () => {
-    //押された削除ボタンの親タグ(div)を未完了リストから削除
-    deleteFromIncompleteList(deleteButton.parentNode);
-  });
-
-  // divタグの子要素に各要素を設定
-  div.appendChild(li);
-  div.appendChild(completeButton);
 /**
  * アロー関数
  */
@@ -137,15 +71,6 @@ const createIncompleteList = (text) => {
 //   return str;
 // }
 // console.log(func1("func1です"));
-  div.appendChild(deleteButton);
-
-  // 未完了リストに追加
-  document.getElementById("incomplete-list").appendChild(div);
-};
-
-document
-  .getElementById("add-button")
-  .addEventListener("click", () => onClickAdd());
 
 //アロー関数
 // const func2 = (str) => {
@@ -287,3 +212,9 @@ document
 // ||は左側がfalseなら右側を返す
 // const num = null;
 // const fee = num || "金額未設定です";
+// console.log(fee);
+
+// ||は左側がtrueなら右側を返す
+// const num2 = 100;
+// const fee2 = num2 && "何か設定されました";
+// console.log(fee2);
